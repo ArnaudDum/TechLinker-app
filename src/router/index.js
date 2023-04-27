@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const Home = () => import('../views/Home.vue')
+const SignupSignin = () => import('../views/Signup-signin.vue')
 const Projects = () => import('../views/Projects.vue')
 const Profile = () => import('../views/Profile.vue')
 const Contact = () => import('../views/Contact.vue')
@@ -12,6 +13,12 @@ const router = createRouter({
       name: 'Home',
       component: Home,
       meta: { title: 'Accueil' }
+    },
+    {
+      path: '/inscription-connexion',
+      name: 'signup-signin',
+      component: SignupSignin,
+      meta: { title: 'Inscription / Connexion' }
     },
     {
       path: '/projets',
