@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "pseudo": "Tom",
+      "email": "test@test.test",
+      "password": "kikou123"
+    },
+    {
+      "id": 2,
+      "pseudo": "Camille",
+      "email": "dev@test.test",
+      "password": "yolo1234"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Développement front-end",
+      "color": "blue"
+    },
+    {
+      "id": 2,
+      "title": "Développement back-end",
+      "color": "red"
+    },
+    {
+      "id": 3,
+      "title": "Graphisme & Design",
+      "color": "green"
+    },
+    {
+      "id": 4,
+      "title": "Développement d'application mobile",
+      "color": "orange"
+    },
+    {
+      "id": 5,
+      "title": "Infrastructure",
+      "color": "yellow"
+    },
+    {
+      "id": 6,
+      "title": "Architecture",
+      "color": "purple"
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "title": "Javascript"
+    },
+    {
+      "id": 2,
+      "title": "Php"
+    },
+    {
+      "id": 3,
+      "title": "Git"
+    },
+    {
+      "id": 4,
+      "title": "MongoDB"
+    },
+    {
+      "id": 5,
+      "title": "Figma"
+    },
+    {
+      "id": 6,
+      "title": "Vue.js"
+    }
+  ]
+}
