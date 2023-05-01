@@ -5,7 +5,7 @@
 
 <template>
   <!-- <Header /> -->
-  <main>
+  <main class="font-sans">
     <router-view />
   </main>
   <!-- <Footer /> -->
