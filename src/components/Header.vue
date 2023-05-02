@@ -1,5 +1,9 @@
 <script setup>
+  import { useWindowSize } from '../helpers/composables/useWindowSize'
+  import NavMobile from '../components/NavMobile.vue'
+  import NavDesktop from '../components/NavDesktop.vue'
 
+  const { mobile, desktop } = useWindowSize()
 </script>
 
 <template>
@@ -9,9 +13,12 @@
         <p>Tech Linker</p>
       </div>
       <div>
-        <!-- NAV MOBILE -->
-        <!-- NAV DESKTOP -->
+        <NavDesktop v-if="desktop" />
+        <div v-else>
+          <font-awesome-icon icon="fa-solid fa-bars" />
+        </div>
       </div>
     </div>
+    <NavMobile v-if="mobile" />
   </header>
 </template>
