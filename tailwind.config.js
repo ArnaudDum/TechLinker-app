@@ -7,9 +7,16 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'gray-dark': '#1A1E23',
+        'gray': '#282B37',
+        'blue': '#3EB6D2',
+        'green': '#6ECFA7',
+        'turquoise': '#5EC5BF'
+      },
       fontFamily: {
-        sans: ['Roboto', ...defaultTheme.fontFamily.sans],
-        mono: ['Inter', ...defaultTheme.fontFamily.mono]
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        mono: ['Wix Madefor Text', ...defaultTheme.fontFamily.mono]
       }
     },
   },

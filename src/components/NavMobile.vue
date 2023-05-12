@@ -1,9 +1,9 @@
 <script setup></script>
 
 <template>
-  <div>
-    <nav>
-      <ul>
+  <div class="bg-gray-dark absolute top-100 right-100 w-full">
+    <nav class="px-5">
+      <ul class="text-green font-mono">
         <li>
           <router-link to="/projets">Projets</router-link>
         </li>

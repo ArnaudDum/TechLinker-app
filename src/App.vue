@@ -10,3 +10,10 @@
   </main>
   <!-- <Footer /> -->
 </template>
+
+<style>
+  body {
+    background-color: #1A1E23;
+    font-weight: 300;
+  }
+</style>

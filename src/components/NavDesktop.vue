@@ -6,7 +6,7 @@
 
 <template>
   <nav>
-    <ul>
+    <ul class="flex items-center gap-10 text-green">
       <li>
         <router-link to="/projets">Projets</router-link>
       </li>

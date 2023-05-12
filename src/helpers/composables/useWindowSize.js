@@ -12,8 +12,8 @@ export const useWindowSize = () => {
   onMounted(() => window.addEventListener('resize', handleResize))
   onUnmounted(() => window.addEventListener('resize', handleResize))
 
-  const desktop = computed(() => width.value > 900)
-  const mobile = computed(() => width.value < 900)
+  const desktop = computed(() => width.value > 768)
+  const mobile = computed(() => width.value < 768)
 
   return { width, height, desktop, mobile }
 }
