@@ -5,7 +5,7 @@
 <template>
   <!-- Banner -->
   <section class="home-banner">
-    <div class="relative">
+    <div class="relative h-full w-full">
       <div class="absolute top-0 left-0 h-full w-full">
         <div class="banner-background h-full w-full"></div>
       </div>
@@ -38,6 +38,10 @@
 </template>
 
 <style>
+  .home-banner {
+    height: calc(100vh - 60px);
+  }
+
   .banner-background {
     background: linear-gradient(
       .35turn,
@@ -52,5 +56,11 @@
       #43b9cd 80% 90%,
       #3eb6d2 90% 100%
     );
+  }
+
+  @media (min-width: 640px) {
+    .home-banner {
+      height: calc(100vh - 75px);
+    }
   }
 </style>
