@@ -12,10 +12,13 @@
 </script>
 
 <template>
-  <header class="relative">
-    <div class="flex items-center justify-between px-5 sm:px-8 py-3 sm:py-5">
+  <header class="fixed h-[60px] sm:h-[75px] w-full">
+    <div class="h-full flex items-center justify-between px-5 sm:px-8 py-3 sm:py-5">
       <div>
-        <router-link to="/" class="font-mono text-green">TechLinker</router-link>
+        <router-link to="/" class="font-mono text-green">
+          <font-awesome-icon icon="fa-solid fa-share-nodes" />
+          TechLinker
+        </router-link>
       </div>
       <div>
         <NavDesktop v-if="desktop" />

@@ -4,8 +4,8 @@
 </script>
 
 <template>
-  <Header />
-  <main>
+  <Header class="bg-gray-dark" />
+  <main class="bg-gray-dark pt-[60px] sm:pt-[75px]">
     <router-view />
   </main>
   <!-- <Footer /> -->
@@ -13,7 +13,6 @@
 
 <style>
   body {
-    background-color: #1A1E23;
     font-weight: 300;
   }
 </style>
