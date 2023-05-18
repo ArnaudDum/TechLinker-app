@@ -5,7 +5,7 @@
 
 <template>
   <Header class="bg-gray-dark" />
-  <main class="bg-gray-dark">
+  <main class="bg-gray-dark pt-[60px] sm:pt-[75px]">
     <router-view />
   </main>
   <!-- <Footer /> -->
