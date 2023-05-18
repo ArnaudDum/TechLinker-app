@@ -5,14 +5,9 @@
 <template>
   <!-- Banner -->
   <section class="home-banner">
-    <div class="relative h-full w-full">
-      <div class="absolute top-0 left-0 h-full w-full">
-        <div class="banner-background h-full w-full"></div>
-      </div>
-      <div class="relative">
-        <h1>Tech Linker</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
+    <div>
+      <h1>Tech Linker</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
   </section>
 
@@ -40,22 +35,6 @@
 <style>
   .home-banner {
     height: calc(100vh - 60px);
-  }
-
-  .banner-background {
-    background: linear-gradient(
-      .35turn,
-      #6ecfa7 0 10%,
-      #69ccac 10% 20%,
-      #63c9b1 20% 30%,
-      #5ec7b5 30% 40%,
-      #59c4ba 40% 50%,
-      #53c1bf 50% 60%,
-      #4ebec4 60% 70%,
-      #49bcc8 70% 80%,
-      #43b9cd 80% 90%,
-      #3eb6d2 90% 100%
-    );
   }
 
   @media (min-width: 640px) {
