@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import authGuard from '../helpers/guards/authGuards'
 
 const Home = () => import('../views/Home.vue')
 const SignupSignin = () => import('../views/Signup-signin.vue')
@@ -30,7 +31,8 @@ const router = createRouter({
       path: '/profil',
       name: 'Profile',
       component: Profile,
-      meta: { title: 'Profil' }
+      meta: { title: 'Profil' },
+      beforeEnter: authGuard
     },
     {
       path: '/contact',
