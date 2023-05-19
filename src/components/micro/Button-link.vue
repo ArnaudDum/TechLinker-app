@@ -1,0 +1,60 @@
+<script setup>
+  const props = defineProps({
+    title: { type: String },
+    to: { type: String }
+  })
+</script>
+
+<template>
+  <router-link to="{{ to }}" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
+</template>
+
+<style scoped>
+  .tl-btn {
+    padding: 1px;
+    background: linear-gradient(.4turn, #6ECFA7, #3EB6D2);
+    text-align: center;
+    border-radius: 11px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    transition: 150ms transform ease-out;
+  }
+
+  .tl-btn--content {
+    z-index: 1;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: 300;
+    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    color: #6ECFA7;
+  }
+
+  .tl-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: unset;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(.4turn, #3EB6D2, #6ECFA7);
+    transition: width 150ms ease-in-out;
+  }
+
+  .tl-btn:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  .tl-btn:hover::before {
+    left: 0;
+    right: unset;
+    width: 100%;
+  }
+</style>

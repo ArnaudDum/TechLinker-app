@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-let defaultTheme = require("tailwindcss/defaultTheme")
+let defaultTheme = require('tailwindcss/defaultTheme')
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
