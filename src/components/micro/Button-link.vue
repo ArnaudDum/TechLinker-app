@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <router-link to="{{ to }}" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
+  <router-link :to="to" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
 </template>
 
 <style scoped>

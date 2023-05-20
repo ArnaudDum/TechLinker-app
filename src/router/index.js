@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import useAuthStore from '../stores/useAuthStore'
 import authGuard from '../helpers/guards/authGuards'
 
+const Landing = () => import('../views/Landing.vue')
 const Home = () => import('../views/Home.vue')
 const SignupSignin = () => import('../views/Signup-signin.vue')
 const Projects = () => import('../views/Projects.vue')
@@ -11,9 +13,24 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Landing',
+      component: Landing,
+      meta: { title: 'Accueil' },
+      beforeEnter: (to, from, next) => {
+        const store = useAuthStore()
+        if (store.isAuthenticated) {
+          next('/home')
+        } else {
+          next('/')
+        }
+      }
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: Home,
-      meta: { title: 'Accueil' }
+      meta: { title: 'Dashboard' },
+      beforeEnter: authGuard
     },
     {
       path: '/inscription-connexion',
