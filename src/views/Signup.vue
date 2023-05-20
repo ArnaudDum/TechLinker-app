@@ -34,16 +34,16 @@
     <h1>Inscription</h1>
     <form @submit.prevent="handleSignup">
       <div>
-        <label for="">Email</label>
-        <input type="email">
+        <label>Email</label>
+        <input type="email" v-model="credentials.email">
       </div>
       <div>
-        <label for="">Mot de passe</label>
-        <input type="password">
+        <label>Mot de passe</label>
+        <input type="password" v-model="credentials.password">
       </div>
       <div>
-        <label for="">Confirmer le mot de passe</label>
-        <input type="password">
+        <label>Confirmer le mot de passe</label>
+        <input type="password" v-model="confirmPassword">
       </div>
       <div>
         <button type="submit">Enregistrer</button>
