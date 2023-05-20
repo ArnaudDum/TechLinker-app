@@ -4,7 +4,8 @@ import authGuard from '../helpers/guards/authGuards'
 
 const Landing = () => import('../views/Landing.vue')
 const Home = () => import('../views/Home.vue')
-const SignupSignin = () => import('../views/Signup-signin.vue')
+const Signin = () => import('../views/Signin.vue')
+const Signup = () => import('../views/Signup.vue')
 const Projects = () => import('../views/Projects.vue')
 const Profile = () => import('../views/Profile.vue')
 const Contact = () => import('../views/Contact.vue')
@@ -33,10 +34,16 @@ const router = createRouter({
       beforeEnter: authGuard
     },
     {
-      path: '/inscription-connexion',
-      name: 'signup-signin',
-      component: SignupSignin,
-      meta: { title: 'Inscription / Connexion' }
+      path: '/connexion',
+      name: 'Signin',
+      component: Signin,
+      meta: { title: 'Connexion' }
+    },
+    {
+      path: '/inscription',
+      name: 'Signup',
+      component: Signup,
+      meta: { title: 'Inscription' }
     },
     {
       path: '/projets',

@@ -25,7 +25,7 @@
         <font-awesome-icon class="text-green" icon="fa-solid fa-bars" @click="toggleMenu"/>
       </div>
       <div class="order-3 pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
-        <ButtonLink to="/inscription-connexion" title="Connexion" />
+        <ButtonLink to="/connexion" title="Connexion" />
       </div>
     </div>
     <NavMobile v-if="mobile && isMobileMenuOpen" />
