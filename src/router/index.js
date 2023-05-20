@@ -21,7 +21,7 @@ const router = createRouter({
         if (store.isAuthenticated) {
           next('/home')
         } else {
-          next('/')
+          next()
         }
       }
     },
