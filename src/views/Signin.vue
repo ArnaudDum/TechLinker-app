@@ -13,7 +13,7 @@
     try {
       signin(credentials.value)
       resetForm()
-      router.push('/home')
+      router.push('/')
     } catch (error) {
       console.error(error)
     }
@@ -32,12 +32,12 @@
     <h1>Connexion</h1>
     <form @submit.prevent="handleSignin">
       <div>
-        <label for="">Email</label>
-        <input type="email">
+        <label>Email</label>
+        <input type="email" v-model="credentials.email">
       </div>
       <div>
-        <label for="">Mot de passe</label>
-        <input type="password">
+        <label>Mot de passe</label>
+        <input type="password" v-model="credentials.password">
       </div>
       <div>
         <button type="submit">Valider</button>

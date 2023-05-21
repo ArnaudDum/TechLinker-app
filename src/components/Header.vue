@@ -1,9 +1,11 @@
 <script setup>
   import { ref } from 'vue'
   import { useWindowSize } from '../helpers/composables/useWindowSize'
+  import { useRouter } from 'vue-router'
+  import { logout } from '../helpers/services/authService'
+  import useAuthStore from '../stores/useAuthStore'
   import NavMobile from '../components/NavMobile.vue'
   import NavDesktop from '../components/NavDesktop.vue'
-
   import ButtonLink from '../components/micro/Button-link.vue'
   import HomeLink from '../components/micro/Home-link.vue'
 
@@ -11,6 +13,13 @@
   const isMobileMenuOpen = ref(false)
   const toggleMenu = () => {
     isMobileMenuOpen.value = !isMobileMenuOpen.value
+  }
+
+  const store = useAuthStore()
+  const router = useRouter()
+  const handleLogout = () => {
+    logout()
+    router.push('/')
   }
 </script>
 
@@ -25,7 +34,8 @@
         <font-awesome-icon class="text-green" icon="fa-solid fa-bars" @click="toggleMenu"/>
       </div>
       <div class="order-3 pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
-        <ButtonLink to="/connexion" title="Connexion" />
+        <ButtonLink v-if="!store.getIsAuthenticated" to="/connexion" title="Connexion" />
+        <button v-else @click="handleLogout">Déconnexion</button>
       </div>
     </div>
     <NavMobile v-if="mobile && isMobileMenuOpen" />

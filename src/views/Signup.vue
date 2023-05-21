@@ -11,11 +11,11 @@
 
   const confirmPassword = ref('')
   const handleSignup = () => {
-    if (confirmPassword === credentials.value.password) {
+    if (confirmPassword.value === credentials.value.password) {
       try {
         signup(credentials.value)
         resetForm()
-        router.push('/home')
+        router.push('/')
       } catch (error) {
         console.error(error)
       }

@@ -6,7 +6,7 @@ export const signup = async (credentials) => {
   try {
     const store = useAuthStore()
     const { data } = await axios.post(`${API_URL}/user/signup`, credentials)
-    store.login({ user: data.user, token: data.token })
+    store.login({ user: data.userId, token: data.token })
   } catch (error) {
     console.error(error)
   }
@@ -15,14 +15,14 @@ export const signup = async (credentials) => {
 export const signin = async (credentials) => {
   try {
     const store = useAuthStore()
-    const { data } = await axios.get(`${API_URL}/user/login`, credentials)
-    store.login({ user: data.user, token: data.accessToken })
+    const { data } = await axios.post(`${API_URL}/user/login`, credentials)
+    store.login({ user: data.userId, token: data.token })
   } catch (error) {
     console.error(error)
   }
 }
 
-export const logout = async (user) => {
+export const logout = async () => {
   const store = useAuthStore()
   store.logout()
 }
