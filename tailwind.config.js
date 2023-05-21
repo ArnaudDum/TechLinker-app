@@ -6,10 +6,14 @@ export default {
     './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
+    screens: {
+      's': '400px'
+    },
     extend: {
       colors: {
         'gray-dark': '#262626',
         'gray': '#3F3F3F',
+        'gray-light': '#F3F3F3',
         'blue': '#3EB6D2',
         'green': '#6ECFA7',
         'turquoise': '#5EC5BF'

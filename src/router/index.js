@@ -9,6 +9,7 @@ const Signup = () => import('../views/Signup.vue')
 const Projects = () => import('../views/Projects.vue')
 const Profile = () => import('../views/Profile.vue')
 const Contact = () => import('../views/Contact.vue')
+const About = () => import('../views/About.vue')
 
 const router = createRouter({
   routes: [
@@ -79,6 +80,12 @@ const router = createRouter({
       name: 'Contact',
       component: Contact,
       meta: { title: 'Contact' }
+    },
+    {
+      path: '/a-propos',
+      name: 'About',
+      component: About,
+      meta: { title: 'À propos' }
     }
   ],
   history: createWebHistory()
