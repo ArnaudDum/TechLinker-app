@@ -6,6 +6,7 @@
   import useAuthStore from '../stores/useAuthStore'
   import NavMobile from '../components/NavMobile.vue'
   import NavDesktop from '../components/NavDesktop.vue'
+  import Button from '../components/micro/Button.vue'
   import ButtonLink from '../components/micro/Button-link.vue'
   import HomeLink from '../components/micro/Home-link.vue'
 
@@ -35,7 +36,7 @@
       </div>
       <div class="order-3 pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
         <ButtonLink v-if="!store.getIsAuthenticated" to="/connexion" title="Connexion" />
-        <button v-else @click="handleLogout">Déconnexion</button>
+        <Button v-else @click="handleLogout" title="Déconnexion" />
       </div>
     </div>
     <NavMobile v-if="mobile && isMobileMenuOpen" />

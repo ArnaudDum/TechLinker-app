@@ -37,13 +37,29 @@ const router = createRouter({
       path: '/connexion',
       name: 'Signin',
       component: Signin,
-      meta: { title: 'Connexion' }
+      meta: { title: 'Connexion' },
+      beforeEnter: (to, from, next) => {
+        const store = useAuthStore()
+        if (store.isAuthenticated) {
+          next('/home')
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/inscription',
       name: 'Signup',
       component: Signup,
-      meta: { title: 'Inscription' }
+      meta: { title: 'Inscription' },
+      beforeEnter: (to, from, next) => {
+        const store = useAuthStore()
+        if (store.isAuthenticated) {
+          next('/home')
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/projets',

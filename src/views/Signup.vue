@@ -15,7 +15,7 @@
       try {
         signup(credentials.value)
         resetForm()
-        router.push('/')
+        router.push('/home')
       } catch (error) {
         console.error(error)
       }
@@ -37,15 +37,15 @@
     <form @submit.prevent="handleSignup">
       <div>
         <label>Email</label>
-        <input type="email" v-model="credentials.email">
+        <input type="email" v-model="credentials.email" class="text-black">
       </div>
       <div>
         <label>Mot de passe</label>
-        <input type="password" v-model="credentials.password">
+        <input type="password" v-model="credentials.password" class="text-black">
       </div>
       <div>
         <label>Confirmer le mot de passe</label>
-        <input type="password" v-model="confirmPassword">
+        <input type="password" v-model="confirmPassword" class="text-black">
       </div>
       <div>
         <button type="submit">Enregistrer</button>
