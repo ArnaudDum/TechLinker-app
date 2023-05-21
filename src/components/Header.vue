@@ -7,8 +7,8 @@
   import NavMobile from '../components/NavMobile.vue'
   import NavDesktop from '../components/NavDesktop.vue'
   import Button from '../components/micro/Button.vue'
-  import ButtonLink from '../components/micro/Button-link.vue'
-  import HomeLink from '../components/micro/Home-link.vue'
+  import ButtonLink from '../components/micro/ButtonLink.vue'
+  import HomeLink from '../components/micro/HomeLink.vue'
 
   const { mobile, desktop } = useWindowSize()
   const isMobileMenuOpen = ref(false)

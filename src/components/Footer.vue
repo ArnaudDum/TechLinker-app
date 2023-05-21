@@ -1,5 +1,5 @@
 <script setup>
-  import HomeLink from './micro/Home-link.vue'
+  import HomeLink from './micro/HomeLink.vue'
 </script>
 
 <template>
