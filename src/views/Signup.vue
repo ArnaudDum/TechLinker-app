@@ -11,12 +11,14 @@
 
   const confirmPassword = ref('')
   const handleSignup = () => {
-    try {
-      signup(credentials.value)
-      resetForm()
-      router.push('/home')
-    } catch (error) {
-      console.error(error)
+    if (confirmPassword === credentials.value.password) {
+      try {
+        signup(credentials.value)
+        resetForm()
+        router.push('/home')
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 
