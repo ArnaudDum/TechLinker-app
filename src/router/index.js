@@ -1,7 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import useAuthStore from '../stores/useAuthStore'
+import authGuard from '../helpers/guards/authGuards'
 
+const Landing = () => import('../views/Landing.vue')
 const Home = () => import('../views/Home.vue')
-const SignupSignin = () => import('../views/Signup-signin.vue')
+const Signin = () => import('../views/Signin.vue')
+const Signup = () => import('../views/Signup.vue')
 const Projects = () => import('../views/Projects.vue')
 const Profile = () => import('../views/Profile.vue')
 const Contact = () => import('../views/Contact.vue')
@@ -10,15 +14,52 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home,
-      meta: { title: 'Accueil' }
+      name: 'Landing',
+      component: Landing,
+      meta: { title: 'Accueil' },
+      beforeEnter: (to, from, next) => {
+        const store = useAuthStore()
+        if (store.isAuthenticated) {
+          next('/home')
+        } else {
+          next()
+        }
+      }
     },
     {
-      path: '/inscription-connexion',
-      name: 'signup-signin',
-      component: SignupSignin,
-      meta: { title: 'Inscription / Connexion' }
+      path: '/home',
+      name: 'Home',
+      component: Home,
+      meta: { title: 'Dashboard' },
+      beforeEnter: authGuard
+    },
+    {
+      path: '/connexion',
+      name: 'Signin',
+      component: Signin,
+      meta: { title: 'Connexion' },
+      beforeEnter: (to, from, next) => {
+        const store = useAuthStore()
+        if (store.isAuthenticated) {
+          next('/home')
+        } else {
+          next()
+        }
+      }
+    },
+    {
+      path: '/inscription',
+      name: 'Signup',
+      component: Signup,
+      meta: { title: 'Inscription' },
+      beforeEnter: (to, from, next) => {
+        const store = useAuthStore()
+        if (store.isAuthenticated) {
+          next('/home')
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/projets',
@@ -30,7 +71,8 @@ const router = createRouter({
       path: '/profil',
       name: 'Profile',
       component: Profile,
-      meta: { title: 'Profil' }
+      meta: { title: 'Profil' },
+      beforeEnter: authGuard
     },
     {
       path: '/contact',
