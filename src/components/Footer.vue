@@ -19,6 +19,7 @@
         <div class="flex flex-col gap-2 items-center s:items-end mt-3 s:mt-0 sm:pe-10">
           <router-link to="/contact" class="footer-link">Contact</router-link>
           <router-link to="/a-propos" class="footer-link">À propos</router-link>
+          <p class="footer-link">FAQ</p>
           <p class="footer-link">Solution</p>
           <p class="footer-link">Actualité</p>
           <p class="footer-link">Confidentialité</p>

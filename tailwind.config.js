@@ -6,9 +6,6 @@ export default {
     './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
-    screens: {
-      's': '400px'
-    },
     extend: {
       colors: {
         'gray-dark': '#262626',
@@ -21,6 +18,9 @@ export default {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         mono: ['Wix Madefor Text', ...defaultTheme.fontFamily.mono]
+      },
+      screens: {
+        's': '400px'
       }
     },
   },
