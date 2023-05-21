@@ -9,11 +9,11 @@
       <div class="flex flex-col s:flex-row s:justify-between">
         <div>
           <HomeLink class="font-medium" />
-          <div class="footer-networks text-blue flex justify-center gap-2 mt-3 s:mt-1">
-            <font-awesome-icon icon="fa-brands fa-linkedin-in" />
-            <font-awesome-icon icon="fa-brands fa-twitter" />
-            <font-awesome-icon icon="fa-brands fa-facebook" />
-            <font-awesome-icon icon="fa-brands fa-discord" />
+          <div class="text-blue flex justify-center gap-2 mt-3 s:mt-1">
+            <font-awesome-icon icon="fa-brands fa-linkedin-in" class="footer-network" />
+            <font-awesome-icon icon="fa-brands fa-twitter" class="footer-network" />
+            <font-awesome-icon icon="fa-brands fa-facebook" class="footer-network" />
+            <font-awesome-icon icon="fa-brands fa-discord" class="footer-network" />
           </div>
         </div>
         <div class="flex flex-col gap-2 items-center s:items-end mt-3 s:mt-0 sm:pe-10">
@@ -33,11 +33,22 @@
     background: linear-gradient(to right, #6ECFA7, #3EB6D2);
   }
 
+  .footer-network {
+    transform: scale(1);
+    transition: all 150ms ease-out;
+  }
+  .footer-network:hover {
+    cursor: pointer;
+    color: #5EC5BF;
+    transform: scale(1.2);
+  }
+
   .footer-link {
     color: #6D7278;
   }
 
   .footer-link:hover {
+    cursor: pointer;
     color: #262626;
   }
 </style>
