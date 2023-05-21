@@ -12,8 +12,11 @@
   const handleSignin = () => {
     try {
       signin(credentials.value)
-      resetForm()
-      router.push('/home')
+        .then(() => {
+          resetForm()
+          router.push('/home')
+        })
+        .catch((error) => console.error(error))
     } catch (error) {
       console.error(error)
     }

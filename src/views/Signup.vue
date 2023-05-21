@@ -14,8 +14,11 @@
     if (confirmPassword.value === credentials.value.password) {
       try {
         signup(credentials.value)
-        resetForm()
-        router.push('/home')
+          .then(() => {
+            resetForm()
+            router.push('/home')
+          })
+          .catch((error) => console.error(error))
       } catch (error) {
         console.error(error)
       }
