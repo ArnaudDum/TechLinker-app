@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBars, faShareNodes } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faTwitter, faFacebook, faDiscord } from '@fortawesome/free-brands-svg-icons'
 
+import './assets/base.css'
 import './assets/main.css'
 
 const app = createApp(App)
