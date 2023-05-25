@@ -4,10 +4,16 @@
 
 <template>
   <!-- Banner -->
-  <section class="home-banner">
-    <div>
-      <h1>Tech Linker</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <section class="home-banner relative">
+    <div class="home-banner-bg absolute top-0 left-0 w-full h-full">
+      <div class="home-banner-bubble home-banner-bubble--green"></div>
+      <div class="home-banner-bubble home-banner-bubble--blue"></div>
+    </div>
+    <div class="max-w-[1000px] mx-auto px-[20px] relative">
+      <div class="py-[30px]">
+        <h1 class="text-5xl font-bold font-mono">Tech Linker</h1>
+        <p class="text-3xl font-medium">Aucune limite à vos projets !</p>
+      </div>
     </div>
   </section>
 
@@ -34,14 +40,40 @@
   <ScrollTop />
 </template>
 
-<style>
+<style scoped>
   .home-banner {
-    height: calc(100vh - 60px);
+    height: 100vh;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .home-banner-bg {
+    /* background: linear-gradient(137deg, #5EC5BF 46%, #6ECFA7 100%); */
+    filter: blur(100px);
+  }
+
+  .home-banner-bubble {
+    border-radius: 50%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  .home-banner-bubble--green {
+    background-color: #6ECFA7;
+    top: -50%;
+    right: -50%;
+  }
+
+  .home-banner-bubble--blue {
+    background-color: #3EB6D2;
+    bottom: -50%;
+    left: -50%;
   }
 
   @media (min-width: 640px) {
     .home-banner {
-      height: calc(100vh - 75px);
+      padding-top: 75px;
     }
   }
 </style>
