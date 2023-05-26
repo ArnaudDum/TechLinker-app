@@ -14,6 +14,7 @@
             <font-awesome-icon icon="fa-brands fa-twitter" class="footer-network" />
             <font-awesome-icon icon="fa-brands fa-facebook" class="footer-network" />
             <font-awesome-icon icon="fa-brands fa-discord" class="footer-network" />
+            <font-awesome-icon icon="fa-brands fa-dribbble" class="footer-network" />
           </div>
         </div>
         <div class="flex flex-col gap-2 items-center s:items-end mt-3 s:mt-0 sm:pe-10">
