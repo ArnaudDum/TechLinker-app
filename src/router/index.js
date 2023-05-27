@@ -7,10 +7,12 @@ const Home = () => import('../views/Home.vue')
 const Signin = () => import('../views/Signin.vue')
 const Signup = () => import('../views/Signup.vue')
 const Projects = () => import('../views/Projects.vue')
+const Community = () => import('../views/Community.vue')
 const Profile = () => import('../views/Profile.vue')
 const Contact = () => import('../views/Contact.vue')
 const About = () => import('../views/About.vue')
 const Team = () => import('../views/Team.vue')
+const Settings = () => import('../views/Settings.vue')
 
 const router = createRouter({
   routes: [
@@ -70,6 +72,13 @@ const router = createRouter({
       meta: { title: 'Projets' }
     },
     {
+      path: '/communaute',
+      name: 'Community',
+      component: Community,
+      meta: { title: 'Communauté' },
+      beforeEnter: authGuard
+    },
+    {
       path: '/profil',
       name: 'Profile',
       component: Profile,
@@ -93,6 +102,12 @@ const router = createRouter({
       name: 'Team',
       component: Team,
       meta: { title: 'L\'équipe' }
+    },
+    {
+      path: '/parametres',
+      name: 'Settings',
+      component: Settings,
+      meta: { title: 'Paramètres' }
     }
   ],
   history: createWebHistory()
