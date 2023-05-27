@@ -1,7 +1,7 @@
 <script setup>
   import ScrollTop from '../components/micro/ScrollTop.vue'
   import Button from '../components/micro/Button.vue'
-  import { ref, onMounted } from 'vue'
+  import { onMounted } from 'vue'
   import { useIntersectionObserver } from '@vueuse/core'
 
   onMounted(() => {
@@ -50,7 +50,7 @@
       </div>
       <div class="flex items-center justify-center gap-5">
         <Button type="link" to="/inscription" title="S'inscrire" />
-        <Button type="link" to="/equipe" title="Rejoindre l'équipe" />
+        <Button type="link" to="/projets" title="Voir les projets" />
       </div>
     </div>
     <div class="absolute bottom-5 w-full px-[30px] flex items-center justify-between">
@@ -65,24 +65,24 @@
 
   <section>
     <!-- Intro -->
-    <div class="max-w-[1200px] mx-auto px-[30px] py-16">
+    <div class="max-w-[1200px] mx-auto px-[30px] py-16 lg:flex lg:gap-10 lg:items-stretch">
 
-      <div class="card-observer">
-        <div class="home-card bg-gray rounded-2xl mb-16 relative overflow-hidden">
-          <div class="p-5 flex flex-col gap-5 relative z-10">
+      <div class="card-observer lg:flex-1">
+        <div class="home-card bg-gray rounded-2xl mb-16 relative overflow-hidden h-full">
+          <div class="h-full p-5 flex flex-col gap-5 relative z-10">
             <h3 class="font-mono text-xl text-green">Une communauté liée autours de vos idées</h3>
             <p><span>Tech Linker</span> met en lien les différents profils tech afin de transformer des idées de projets en réalisations concrètes.</p>
-            <Button type="link" to="/projets" title="Comment ça marche ?" />
+            <Button class="mt-auto" type="link" to="/projets" title="Comment ça marche ?" />
           </div>
-          <div class="absolute bottom-0 right-0">
+          <div class="absolute bottom-10 right-0">
             <font-awesome-icon class="text-green h-32 opacity-40" icon="fa-solid fa-layer-group" />
           </div>
         </div>
       </div>
 
-      <div class="card-observer">
-        <div class="home-card bg-gray rounded-2xl mb-16 relative overflow-hidden">
-          <div class="p-5 flex flex-col gap-5 relative z-10">
+      <div class="card-observer lg:flex-1">
+        <div class="home-card bg-gray rounded-2xl mb-16 relative overflow-hidden h-full">
+          <div class="h-full p-5 flex flex-col gap-5 relative z-10">
             <h3 class="font-mono text-xl text-turquoise">Une idée de projet ?</h3>
             <p><span>Tech Linker</span> c'est simple.<br/><br/>L'outil permet de :</p>
             <ul>
@@ -103,22 +103,22 @@
                 Lancer le projet
               </li>
             </ul>
-            <Button type="link" to="/projets" title="Démarrer un projet" />
+            <Button class="mt-auto" type="link" to="/projets" title="Démarrer un projet" />
           </div>
-          <div class="absolute bottom-0 right-0">
+          <div class="absolute bottom-10 right-0">
             <font-awesome-icon class="text-turquoise h-32 opacity-40" icon="fa-solid fa-rocket" />
           </div>
         </div>
       </div>
 
-      <div class="card-observer">
-        <div class="home-card bg-gray rounded-2xl relative overflow-hidden">
-          <div class="p-5 flex flex-col gap-5 relative z-10">
+      <div class="card-observer lg:flex-1">
+        <div class="home-card bg-gray rounded-2xl relative overflow-hidden h-full">
+          <div class="h-full p-5 flex flex-col justify-start gap-5 relative z-10">
             <h3 class="font-mono text-xl text-blue">Envie de participer ?</h3>
             <p>Vous pouvez consulter tous les projets mis en ligne par la communauté. Si une idée vous tente et que vous avez les compétences nécessaires au projet, faites une demande pour rejoindre l'équipe !</p>
-            <Button type="link" to="/projets" title="Voir les projets" />
+            <Button class="mt-auto" type="link" to="/projets" title="Voir les projets" />
           </div>
-          <div class="absolute bottom-0 right-0">
+          <div class="absolute bottom-10 right-0">
             <font-awesome-icon class="text-blue h-32 opacity-40" icon="fa-solid fa-screwdriver-wrench" />
           </div>
         </div>
@@ -202,16 +202,18 @@
   }
 
   .card-observer .home-card {
+    max-width: 450px;
+    margin-inline: auto;
     opacity: 0;
-    transition: all 700ms ease-out;
+    transition: all 500ms ease-out;
   }
 
   .card-observer:nth-child(even) .home-card {
-    transform: translateX(100%);
+    transform: translateX(50%);
   }
 
   .card-observer:nth-child(odd) .home-card {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 
   .card-observer.appear .home-card {
@@ -222,6 +224,26 @@
   @media (min-width: 640px) {
     .home-banner {
       padding-top: 75px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .card-observer:nth-child(2) .home-card {
+      transition-delay: 150ms;
+    }
+
+    .card-observer:nth-child(3) .home-card {
+      transition-delay: 300ms;
+    }
+
+    .card-observer:nth-child(even) .home-card,
+    .card-observer:nth-child(odd) .home-card {
+      transform: translateX(50%);
+    }
+
+    .card-observer.appear .home-card {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 </style>
