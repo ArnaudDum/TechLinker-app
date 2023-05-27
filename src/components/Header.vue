@@ -4,19 +4,15 @@
   import { useRouter } from 'vue-router'
   import { logout } from '../helpers/services/authService'
   import useAuthStore from '../stores/useAuthStore'
+  import useNavStore from '../stores/useNavStore'
   import { useWindowScroll } from '@vueuse/core'
-  import NavMobile from '../components/NavMobile.vue'
-  import NavDesktop from '../components/NavDesktop.vue'
   import Button from '../components/micro/Button.vue'
   import HomeLink from '../components/micro/HomeLink.vue'
 
   const { mobile, desktop } = useWindowSize()
-  const isMobileMenuOpen = ref(false)
-  const toggleMenu = () => {
-    isMobileMenuOpen.value = !isMobileMenuOpen.value
-  }
 
-  const store = useAuthStore()
+  const authStore = useAuthStore()
+  const navStore = useNavStore()
   const router = useRouter()
   const handleLogout = () => {
     logout()
@@ -30,7 +26,7 @@
   <header class="fixed w-[100vw] z-20" :class="{ 'gray': y > 100 }">
     <div class="h-full flex items-center justify-between px-5 sm:px-8 py-3 sm:py-5">
       <div class="flex items-center sm:flex-row-reverse gap-5">
-        <div @click="toggleMenu" class="burger-btn">
+        <div @click="navStore.toggleMenu" class="burger-btn">
           <div class="burger-icon">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -40,11 +36,10 @@
         <HomeLink />
       </div>
       <div class="pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
-        <Button v-if="!store.getIsAuthenticated" type="link" to="/connexion" title="Connexion" />
+        <Button v-if="!authStore.getIsAuthenticated" type="link" to="/connexion" title="Connexion" />
         <Button v-else @click="handleLogout" type="button" title="Déconnexion" />
       </div>
     </div>
-    <NavMobile v-if="mobile && isMobileMenuOpen" />
   </header>
 </template>
 
