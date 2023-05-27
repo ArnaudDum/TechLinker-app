@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="bg-gray-dark absolute top-100 right-100 w-full">
+  <div class="absolute top-100 right-100 w-full">
     <nav class="px-5">
       <ul class="text-green font-mono">
         <li>

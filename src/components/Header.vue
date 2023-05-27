@@ -4,11 +4,11 @@
   import { useRouter } from 'vue-router'
   import { logout } from '../helpers/services/authService'
   import useAuthStore from '../stores/useAuthStore'
+  import { useWindowScroll } from '@vueuse/core'
   import NavMobile from '../components/NavMobile.vue'
   import NavDesktop from '../components/NavDesktop.vue'
   import Button from '../components/micro/Button.vue'
-  import ButtonLink from '../components/micro/Button-link.vue'
-  import HomeLink from '../components/micro/Home-link.vue'
+  import HomeLink from '../components/micro/HomeLink.vue'
 
   const { mobile, desktop } = useWindowSize()
   const isMobileMenuOpen = ref(false)
@@ -22,23 +22,74 @@
     logout()
     router.push('/')
   }
+
+  const { y } = useWindowScroll()
 </script>
 
 <template>
-  <header class="fixed h-[60px] sm:h-[75px] w-full">
+  <header class="fixed w-[100vw] z-20" :class="{ 'gray': y > 100 }">
     <div class="h-full flex items-center justify-between px-5 sm:px-8 py-3 sm:py-5">
-      <div class="order-1">
+      <div class="flex items-center sm:flex-row-reverse gap-5">
+        <div @click="toggleMenu" class="burger-btn">
+          <div class="burger-icon">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+        </div>
         <HomeLink />
       </div>
-      <NavDesktop v-if="desktop" class="order-2" />
-      <div v-else class="order-4">
-        <font-awesome-icon class="text-green" icon="fa-solid fa-bars" @click="toggleMenu"/>
-      </div>
-      <div class="order-3 pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
-        <ButtonLink v-if="!store.getIsAuthenticated" to="/connexion" title="Connexion" />
-        <Button v-else @click="handleLogout" title="Déconnexion" />
+      <div class="pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
+        <Button v-if="!store.getIsAuthenticated" type="link" to="/connexion" title="Connexion" />
+        <Button v-else @click="handleLogout" type="button" title="Déconnexion" />
       </div>
     </div>
     <NavMobile v-if="mobile && isMobileMenuOpen" />
   </header>
 </template>
+
+<style scoped>
+  header {
+    background-color: transparent;
+    transition: background-color 120ms linear;
+  }
+
+  header.gray {
+    background-color: rgba(38, 38, 38, .8);
+    backdrop-filter: blur(20px);
+  }
+
+  .burger-btn {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    backdrop-filter: none;
+    background-color: unset;
+    transition: background-color 200ms ease-out;
+  }
+
+  .burger-btn:hover {
+    cursor: pointer;
+    background-color: #F3F3F340;
+    backdrop-filter: blur(20px);
+  }
+
+  .burger-icon {
+    height: 20px;
+    width: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .burger-line {
+    width: 100%;
+    height: 2px;
+    background-color: #FFF;
+    border-radius: 3px;
+  }
+</style>

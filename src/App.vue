@@ -4,8 +4,8 @@
 </script>
 
 <template>
-  <Header class="bg-gray-dark" />
-  <main class="bg-gray-dark text-white pt-[60px] sm:pt-[75px]">
+  <Header />
+  <main class="bg-gray-dark text-white">
     <router-view />
   </main>
   <Footer />

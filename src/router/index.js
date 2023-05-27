@@ -10,6 +10,7 @@ const Projects = () => import('../views/Projects.vue')
 const Profile = () => import('../views/Profile.vue')
 const Contact = () => import('../views/Contact.vue')
 const About = () => import('../views/About.vue')
+const Team = () => import('../views/Team.vue')
 
 const router = createRouter({
   routes: [
@@ -86,6 +87,12 @@ const router = createRouter({
       name: 'About',
       component: About,
       meta: { title: 'À propos' }
+    },
+    {
+      path: '/equipe',
+      name: 'Team',
+      component: Team,
+      meta: { title: 'L\'équipe' }
     }
   ],
   history: createWebHistory()
