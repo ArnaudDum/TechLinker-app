@@ -65,7 +65,7 @@
 
   <section>
     <!-- Intro -->
-    <div class="max-w-[1200px] mx-auto px-[30px] py-16 lg:flex lg:gap-10 lg:items-stretch">
+    <div class="max-w-[1200px] mx-auto px-[30px] py-16 lg:flex lg:gap-10 lg:items-stretch lg:justify-between">
 
       <div class="card-observer lg:flex-1">
         <div class="home-card bg-gray rounded-2xl mb-16 relative overflow-hidden h-full">
