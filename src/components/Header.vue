@@ -23,7 +23,7 @@
 </script>
 
 <template>
-  <header class="fixed w-[100vw] z-20" :class="{ 'gray': y > 100 }">
+  <header class="fixed w-[100vw] z-20" :class="{ 'gray': y > 100 || navStore.isOpen }">
     <div class="h-full flex items-center justify-between px-5 sm:px-8 py-3 sm:py-5">
       <div class="flex items-center sm:flex-row-reverse gap-5">
         <div @click="navStore.toggleMenu" class="burger-btn">
