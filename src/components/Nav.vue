@@ -8,7 +8,7 @@
 
 <template>
   <div :class="{ 'open': navStore.isOpen }" class="sidenav fixed left-0 z-20 w-max p-5 flex flex-col justify-between">
-    <nav>
+    <nav class="overflow-auto">
       <ul>
         <router-link to="/" class="nav-ghost-link">
           <div class="link-icon">
