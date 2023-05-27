@@ -2,13 +2,14 @@
   const props = defineProps({
     title: { type: String },
     type: { type: String },
-    to: { type: String }
+    to: { type: String },
+    role: { type: String }
   })
 </script>
 
 <template>
   <router-link v-if="type === 'link'" :to="to" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
-  <button v-else-if="type === 'button'" :to="to" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></button>
+  <button v-else-if="type === 'button'" :to="to" :type="role" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></button>
 </template>
 
 <style scoped>
