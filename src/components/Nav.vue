@@ -71,13 +71,14 @@
     </nav>
     <!-- ROUTE ANTHENTIFIÉE -->
     <div>
-      <router-link to="/profil" class="flex items-start gap-5">
-        <div class="rounded-full overflow-hidden h-16 w-16">
+      <div class="nav-separator"></div>
+      <router-link to="/profil" class="profile-link flex items-start gap-5">
+        <div class="profile-pic rounded-full overflow-hidden h-16 w-16">
           <img class="object-cover h-full w-auto" src="@/assets/img/dev-1.jpg" alt="">
         </div>
         <div class="flex flex-col my-auto">
-          <span class="profile-name">Arnaud Dumoncel</span>
-          <span class="profile-role">Développeur</span>
+          <span class="text-base">Arnaud Dumoncel</span>
+          <span class="profile-role text-sm text-green">Développeur</span>
         </div>
         <div>
           <font-awesome-icon icon="fa-solid fa-ellipsis-vertical" />
@@ -139,8 +140,26 @@
     height: 2px;
     width: 100%;
     border-radius: 2px;
-    background-color: #3F3F3F;
+    background-color: #F3F3F360;
+    /* background: linear-gradient(to right, #6ECFA7, #3EB6D2); */
     margin: 20px 0;
+  }
+
+  .profile-pic {
+    border: 2px solid #3F3F3F;
+  }
+
+  .profile-pic img {
+    transform: scale(1);
+    transition: transform 250ms ease-out;
+  }
+
+  .profile-pic:hover img {
+    transform: scale(1.1);
+  }
+
+  .profile-role {
+    color: #F3F3F380;
   }
 
   @media (min-width: 640px) {
