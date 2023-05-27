@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <button @click="scrollTop" id="scrolltop-btn" :class="{ 'active': y > 200 }" class="sticky bottom-5 right-5 block ms-auto mb-5 me-5 bg-gray-light rounded-full p-5 sm:p-6">
+  <button @click="scrollTop" id="scrolltop-btn" :class="{ 'active': y > 200 }" class="sticky bottom-5 right-5 block ms-auto mb-5 me-5 bg-gray-light rounded-full p-5 sm:p-6 z-20">
     <span class="relative">
       <font-awesome-icon icon="fa-solid fa-arrow-up" class="scrolltop-icon absolute top-[50%] left-[50%] text-green sm:text-xl" />
     </span>

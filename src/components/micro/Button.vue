@@ -1,15 +1,19 @@
 <script setup>
   const props = defineProps({
-    title: { type: String }
+    title: { type: String },
+    type: { type: String },
+    to: { type: String }
   })
 </script>
 
 <template>
-  <button class="tl-btn"><span class="tl-btn--content">{{ title }}</span></button>
+  <router-link v-if="type === 'link'" :to="to" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
+  <button v-else-if="type === 'button'" :to="to" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></button>
 </template>
 
 <style scoped>
   .tl-btn {
+    height: 45px;
     padding: 1px;
     background: linear-gradient(.4turn, #6ECFA7, #3EB6D2);
     text-align: center;
@@ -19,16 +23,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(1);
-    transition: 150ms transform ease-out;
   }
 
   .tl-btn--content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
-    padding: 5px 20px;
+    padding: 5px 25px;
     border-radius: 10px;
     font-weight: 300;
     background-color: #262626;
+    transition: background-color 120ms linear;
     height: 100%;
     width: 100%;
     color: #6ECFA7;
@@ -48,7 +54,10 @@
 
   .tl-btn:hover {
     cursor: pointer;
-    transform: scale(1.01);
+  }
+
+  .tl-btn:hover .tl-btn--content {
+    background-color: #3F3F3F;
   }
 
   .tl-btn:hover::before {
