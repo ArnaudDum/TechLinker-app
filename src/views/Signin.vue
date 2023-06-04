@@ -55,7 +55,7 @@
             </div>
           </div>
           <div>
-            <Button role="submit" type="button" title="Valider" class="w-full" />
+            <Button role="submit" type="button" title="Valider" color="green" class="w-full" />
           </div>
         </form>
         <div class="text-center">

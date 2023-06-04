@@ -67,7 +67,7 @@
             </div>
           </div>
           <div>
-            <Button role="submit" type="button" title="Enregistrer" class="w-full" />
+            <Button role="submit" type="button" title="Enregistrer" color="green" class="w-full" />
           </div>
         </form>
         <div class="text-center">

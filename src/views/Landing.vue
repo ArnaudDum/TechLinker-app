@@ -49,8 +49,8 @@
         </div>
       </div>
       <div class="flex items-center justify-center gap-5">
-        <Button type="link" to="/inscription" title="S'inscrire" />
-        <Button type="link" to="/projets" title="Voir les projets" />
+        <Button type="link" to="/inscription" title="S'inscrire" color="base" />
+        <Button type="link" to="/projets" title="Voir les projets" color="base" />
       </div>
     </div>
     <div class="absolute bottom-5 w-full px-[30px] flex items-center justify-between">
@@ -72,7 +72,7 @@
           <div class="h-full p-5 flex flex-col gap-5 relative z-10">
             <h3 class="font-mono text-xl text-green">Une communauté liée autours de vos idées</h3>
             <p><span>Tech Linker</span> met en lien les différents profils tech afin de transformer des idées de projets en réalisations concrètes.</p>
-            <Button class="mt-auto" type="link" to="/projets" title="Comment ça marche ?" />
+            <Button class="mt-auto" type="link" to="/projets" title="Comment ça marche ?" color="green" />
           </div>
           <div class="absolute bottom-10 right-0">
             <font-awesome-icon class="text-green h-32 opacity-40" icon="fa-solid fa-layer-group" />
@@ -103,7 +103,7 @@
                 Lancer le projet
               </li>
             </ul>
-            <Button class="mt-auto" type="link" to="/projets" title="Démarrer un projet" />
+            <Button class="mt-auto" type="link" to="/projets" title="Démarrer un projet" color="turquoise" />
           </div>
           <div class="absolute bottom-10 right-0">
             <font-awesome-icon class="text-turquoise h-32 opacity-40" icon="fa-solid fa-rocket" />
@@ -116,7 +116,7 @@
           <div class="h-full p-5 flex flex-col justify-start gap-5 relative z-10">
             <h3 class="font-mono text-xl text-blue">Envie de participer ?</h3>
             <p>Vous pouvez consulter tous les projets mis en ligne par la communauté. Si une idée vous tente et que vous avez les compétences nécessaires au projet, faites une demande pour rejoindre l'équipe !</p>
-            <Button class="mt-auto" type="link" to="/projets" title="Voir les projets" />
+            <Button class="mt-auto" type="link" to="/projets" title="Voir les projets" color="blue" />
           </div>
           <div class="absolute bottom-10 right-0">
             <font-awesome-icon class="text-blue h-32 opacity-40" icon="fa-solid fa-screwdriver-wrench" />

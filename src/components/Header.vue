@@ -36,8 +36,8 @@
         <HomeLink />
       </div>
       <div class="pe-5 md:ps-5 md:pe-0 ms-auto md:ms-0">
-        <Button v-if="!authStore.getIsAuthenticated" type="link" to="/connexion" title="Connexion" />
-        <Button v-else @click="handleLogout" type="button" title="Déconnexion" />
+        <Button v-if="!authStore.getIsAuthenticated" type="link" to="/connexion" title="Connexion" color="base" />
+        <Button v-else @click="handleLogout" type="button" title="Déconnexion" color="base" />
       </div>
     </div>
   </header>

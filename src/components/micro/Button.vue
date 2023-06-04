@@ -3,30 +3,54 @@
     title: { type: String },
     type: { type: String },
     to: { type: String },
-    role: { type: String }
+    role: { type: String },
+    color: {
+      validator(value) {
+        return ['base', 'green', 'turquoise', 'blue'].includes(value)
+      }
+    }
   })
 </script>
 
 <template>
-  <router-link v-if="type === 'link'" :to="to" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
-  <button v-else-if="type === 'button'" :to="to" :type="role" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></button>
+  <router-link v-if="type === 'link'" :to="to" :class="color" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></router-link>
+  <button v-else-if="type === 'button'" :to="to" :type="role" :class="color" class="tl-btn"><span class="tl-btn--content">{{ title }}</span></button>
 </template>
 
 <style scoped>
   .tl-btn {
     height: 45px;
-    padding: 1px;
-    background: linear-gradient(.4turn, #6ECFA7, #3EB6D2);
     text-align: center;
-    border-radius: 11px;
     overflow: hidden;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
   }
 
-  .tl-btn--content {
+  .tl-btn.base {
+    position: relative;
+    padding: 1px;
+    border-radius: 11px;
+    background: linear-gradient(.4turn, #6ECFA7, #3EB6D2);
+  }
+
+  .tl-btn.green {
+    background: #6ECFA7;
+  }
+  .tl-btn.blue {
+    background: #3EB6D2;
+  }
+  .tl-btn.turquoise {
+    background: #5EC5BF;
+  }
+
+  .tl-btn .tl-btn--content {
+    color: #3F3F3F;
+    font-weight: 400;
+  }
+
+  .tl-btn.base .tl-btn--content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +65,7 @@
     color: #6ECFA7;
   }
 
-  .tl-btn::before {
+  .tl-btn.base::before {
     content: "";
     position: absolute;
     top: 0;
@@ -57,11 +81,11 @@
     cursor: pointer;
   }
 
-  .tl-btn:hover .tl-btn--content {
+  .tl-btn.base:hover .tl-btn--content {
     background-color: #3F3F3F;
   }
 
-  .tl-btn:hover::before {
+  .tl-btn.base:hover::before {
     left: 0;
     right: unset;
     width: 100%;
