@@ -9,6 +9,7 @@
     email: '',
     password: ''
   })
+  const showPassword = ref(false)
 
   const handleSignin = () => {
     try {
@@ -29,32 +30,36 @@
       password: ''
     }
   }
+
+  const toggleVisibility = () => {
+    showPassword.value = !showPassword.value
+  }
 </script>
 
 <template>
-  <section class="form-page relative">
-    <div class="form-bg absolute top-0 left-0 w-full h-full">
-      <div class="form-bubble form-bubble--gray"></div>
-      <div class="form-bubble form-bubble--turquoise"></div>
-    </div>
-    <div class="max-w-[1200px] mx-auto p-[30px]">
-      <div class="log-form rounded-2xl p-5 max-w-[500px] mx-auto">
-        <h1>Connexion</h1>
-        <form @submit.prevent="handleSignin">
-          <div>
-            <label>Email</label>
-            <input type="email" v-model="credentials.email" class="text-black">
+  <section class="form-page">
+    <div class="max-w-[1200px] mx-auto px-[30px] pt-[50px] pb-[100px] lg:pt-[100px] lg:pb-[200px]">
+      <div class="log-form rounded-2xl p-5 max-w-[450px] mx-auto">
+        <h1 class="font-mono text-2xl lg:text-3xl text-center">Connexion</h1>
+        <form @submit.prevent="handleSignin" class="flex flex-col gap-8 lg:gap-12 my-10">
+          <div class="flex flex-col gap-1 relative">
+            <label class="log-label absolute">Email</label>
+            <input type="email" v-model="credentials.email" :class="{ 'filled': credentials.email }" class="log-input">
+          </div>
+          <div :class="{ 'hide': !showPassword }" class="password-input flex flex-col gap-1 relative">
+            <label class="log-label absolute">Mot de passe</label>
+            <input :type="showPassword ? 'text' : 'password'" v-model="credentials.password" :class="{ 'filled': credentials.password }" class="log-input">
+            <div @click="toggleVisibility" class="log-pw-visibility">
+              <font-awesome-icon class="opened-eye" icon="fa-solid fa-eye" />
+              <font-awesome-icon class="closed-eye" icon="fa-solid fa-eye-slash" />
+            </div>
           </div>
           <div>
-            <label>Mot de passe</label>
-            <input type="password" v-model="credentials.password" class="text-black">
-          </div>
-          <div>
-            <Button role="submit" type="button" title="Valider" />
+            <Button role="submit" type="button" title="Valider" class="w-full" />
           </div>
         </form>
-        <div>
-          <p>Pas encore de compte ? <router-link to="/inscription">Inscrivez-vous</router-link></p>
+        <div class="text-center">
+          <p>Pas encore de compte ? <router-link to="/inscription" class="text-green underline cursor-pointer">Inscrivez-vous</router-link></p>
         </div>
       </div>
     </div>
@@ -66,38 +71,75 @@
     padding-top: 69px;
   }
 
-  .form-bg {
-    filter: blur(100px);
+  .form-page h1 {
+    color: #6ECFA7;
+    background: -webkit-linear-gradient(25deg, #6ECFA7 30%, #3EB6D2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
   }
 
-  .form-bubble {
-    border-radius: 50%;
+  .log-label {
+    transform: translate(15px, -50%);
+    background-color: #262626;
+    color: #F3F3F360;
+    padding-inline: 5px;
+  }
+
+  .log-input {
+    outline: none;
+    background: transparent;
+    height: 45px;
+    padding-inline: 15px;
+    border-radius: 10px;
+    border: 1px solid #3F3F3F;
+    transition: border 150ms ease-out;
+  }
+
+  .log-input:focus,
+  .log-input.filled {
+    border: 1px solid #6ECFA7;
+  }
+
+  .log-input:invalid {
+    border: 1px solid pink;
+  }
+
+  .log-pw-visibility {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    transform: translate(-5px, 5px);
+    height: 35px;
+    background-color:#3F3F3F;
+    transition: all 150ms ease-out;
   }
 
-  .form-bubble.form-bubble--gray {
-    background-color: #3F3F3F;
+  .log-pw-visibility:hover {
+    cursor: pointer;
+    background-color: #F3F3F360;
   }
 
-  .form-bubble.form-bubble--turquoise {
-    background-color: #5EC5BF;
+  .password-input:not(.hide) .log-pw-visibility {
+    background-color: #F3F3F360;
   }
 
-  .form-bubble:nth-child(1) {
-    top: -50%;
-    right: -50%;
+  .log-pw-visibility svg {
+    color: #6ECFA7;
   }
 
-  .form-bubble:nth-child(2) {
-    bottom: -50%;
-    left: -50%;
+  .password-input.hide .log-pw-visibility .opened-eye,
+  .password-input:not(.hide) .log-pw-visibility .closed-eye {
+    display: none;
   }
 
-  .log-form {
-    background-color: #F3F3F340;
-    backdrop-filter: blur(20px);
+  .password-input:not(.hide) .log-pw-visibility .opened-eye,
+  .password-input.hide .log-pw-visibility .closed-eye {
+    display: block;
   }
 
   @media (min-width: 640px) {
