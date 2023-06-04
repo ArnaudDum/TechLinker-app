@@ -16,8 +16,7 @@
           </div>
           Home
         </router-link>
-        <!-- ROUTE ANTHENTIFIÉE -->
-        <router-link to="/" class="nav-ghost-link">
+        <router-link v-if="authStore.isAuthenticated" to="/" class="nav-ghost-link">
           <div class="link-icon">
             <font-awesome-icon icon="fa-solid fa-bars-progress" />
           </div>
@@ -32,15 +31,13 @@
           </div>
           Projets
         </router-link>
-        <!-- ROUTE ANTHENTIFIÉE -->
-        <router-link to="/communaute" class="nav-ghost-link">
+        <router-link v-if="authStore.isAuthenticated" to="/communaute" class="nav-ghost-link">
           <div class="link-icon">
             <font-awesome-icon icon="fa-solid fa-users" />
           </div>
           Communauté
         </router-link>
-        <!-- ROUTE ANTHENTIFIÉE -->
-        <router-link to="/parametres" class="nav-ghost-link">
+        <router-link v-if="authStore.isAuthenticated" to="/parametres" class="nav-ghost-link">
           <div class="link-icon">
             <font-awesome-icon icon="fa-solid fa-gear" />
           </div>
@@ -69,21 +66,22 @@
         </router-link>
       </ul>
     </nav>
-    <!-- ROUTE ANTHENTIFIÉE -->
-    <div>
+    <div v-if="authStore.isAuthenticated">
       <div class="nav-separator"></div>
-      <router-link to="/profil" class="profile-link flex items-start gap-5">
-        <div class="profile-pic rounded-full overflow-hidden h-16 w-16">
-          <img class="object-cover h-full w-auto" src="@/assets/img/dev-1.jpg" alt="">
-        </div>
-        <div class="flex flex-col my-auto">
-          <span class="text-base">Arnaud Dumoncel</span>
-          <span class="profile-role text-sm text-green">Développeur</span>
-        </div>
-        <div>
+      <div class="profile-link flex items-start gap-5">
+        <router-link to="/profil" class="profile-link flex items-start gap-5">
+          <div class="profile-pic rounded-full overflow-hidden h-16 w-16">
+            <img class="object-cover h-full w-auto" src="@/assets/img/dev-1.jpg" alt="" />
+          </div>
+          <div class="flex flex-col my-auto">
+            <span class="text-base">Arnaud Dumoncel</span>
+            <span class="profile-role text-sm text-green">Développeur</span>
+          </div>
+        </router-link>
+        <div class="nav-profile-dots">
           <font-awesome-icon icon="fa-solid fa-ellipsis-vertical" />
         </div>
-      </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -94,10 +92,11 @@
     top: 69px;
     height: 100%;
     height: -webkit-fill-available;
+    min-width: 250px;
     background-color: rgba(38, 38, 38, .8);
     backdrop-filter: blur(20px);
     transform: translateX(-100%);
-    transition: transform 200ms ease-out
+    transition: transform 200ms ease-out;
   }
 
   .sidenav.open {
@@ -140,8 +139,7 @@
     height: 2px;
     width: 100%;
     border-radius: 2px;
-    background-color: #F3F3F360;
-    /* background: linear-gradient(to right, #6ECFA7, #3EB6D2); */
+    background: linear-gradient(to right, #6ECFA7, #3EB6D2);
     margin: 20px 0;
   }
 
@@ -160,6 +158,10 @@
 
   .profile-role {
     color: #F3F3F380;
+  }
+
+  .nav-profile-dots {
+    margin-inline: 10px;
   }
 
   @media (min-width: 640px) {
