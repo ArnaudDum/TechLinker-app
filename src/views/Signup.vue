@@ -42,7 +42,7 @@
 
 <template>
   <section class="form-page">
-    <div class="max-w-[1200px] mx-auto px-[30px] pt-[50px] pb-[100px] lg:pt-[100px] lg:pb-[200px]">
+    <div class="max-w-[1200px] mx-auto px-[30px] pt-[50px] pb-[100px] lg:pt-[200px] lg:pb-[200px]">
       <div class="log-form rounded-2xl p-5 max-w-[450px] mx-auto">
         <h1 class="font-mono text-2xl lg:text-3xl text-center">Inscription</h1>
         <form @submit.prevent="handleSignup" class="flex flex-col gap-8 lg:gap-12 my-10">
