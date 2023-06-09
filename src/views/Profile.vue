@@ -8,7 +8,7 @@
   <section class="profile-page bg-gray">
     <div class="bg-gray-dark">
       <div class="max-w-[1200px] mx-auto px-[30px] pb-[30px]">
-        <div class="flex items-start gap-5 border-b-2 border-gray">
+        <div class="flex items-start gap-5 md:gap-10 border-b-2 border-gray">
           <div class="profile-pic rounded-full h-12 w-12 relative">
             <img src="" alt="">
             <button v-if="authStore.isAuthenticated" class="absolute bottom-2 right-1 cursor-pointer">
@@ -133,6 +133,18 @@
   @media (min-width: 640px) {
     .profile-page {
       padding-top: 200px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .profile-pic {
+      height: 180px;
+      width: 180px;
+    }
+
+    .profile-pic button {
+      bottom: 15px;
+      right: 15px;
     }
   }
 </style>
