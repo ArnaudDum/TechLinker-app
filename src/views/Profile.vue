@@ -95,9 +95,9 @@
               <p>Participation dans 3 projets</p>
             </div>
             <div>
-              <h3 class="text-lg text-[#F3F3F380] mb-3">Présence dans la communauté</h3>
-              <p>17 comptes suivis par Arnaud</p>
-              <p>12 comptes suivent Arnaud</p>
+              <h3 class="text-lg text-[#F3F3F380] mb-3">Communauté</h3>
+              <p>17 profils suivis par Arnaud</p>
+              <p>12 profils suivent Arnaud</p>
             </div>
           </div>
         </div>
