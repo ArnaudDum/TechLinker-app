@@ -1,7 +1,14 @@
 <script setup>
   import useAuthStore from '../stores/useAuthStore'
+  import { useApi } from '../helpers/composables/useApi'
+  import { API_URL } from '../helpers/apiUrl'
+  import { useRoute } from 'vue-router'
 
+  const route = useRoute()
+  const { id } = route.params
   const authStore = useAuthStore()
+
+  const { isFetching, error, data: currentUser } = useApi(`${API_URL}/user/${id}`)
 </script>
 
 <template>
@@ -15,7 +22,7 @@
               <font-awesome-icon icon="fa-solid fa-camera" />
             </button>
           </div>
-          <div class="pt-5 relative">
+          <div class="pt-5 flex-1 relative">
             <button v-if="authStore.isAuthenticated" class="absolute bottom-0 right-0 cursor-pointer">
               <font-awesome-icon icon="fa-solid fa-pen-to-square" />
             </button>
