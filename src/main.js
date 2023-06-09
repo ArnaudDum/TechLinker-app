@@ -4,8 +4,8 @@ import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faBars, faShareNodes, faArrowUp, faCircleCheck, faCheck, faRocket, faLayerGroup, faScrewdriverWrench, faHouse, faBarsProgress, faGrip, faUsers, faPeopleGroup, faComments, faGear, faEllipsisVertical, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedinIn, faTwitter, faFacebook, faDiscord, faDribbble } from '@fortawesome/free-brands-svg-icons'
+import { faBars, faShareNodes, faArrowUp, faCircleCheck, faCheck, faRocket, faLayerGroup, faScrewdriverWrench, faHouse, faBarsProgress, faGrip, faUsers, faPeopleGroup, faComments, faGear, faEllipsisVertical, faEye, faEyeSlash, faCamera, faPenToSquare, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedinIn, faTwitter, faFacebook, faDiscord, faDribbble, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import './assets/base.css'
 import './assets/main.css'
@@ -24,6 +24,7 @@ library.add(
   faFacebook,
   faDiscord,
   faDribbble,
+  faGithub,
   faArrowUp,
   faCircleCheck,
   faCheck,
@@ -39,7 +40,10 @@ library.add(
   faGear,
   faEllipsisVertical,
   faEye,
-  faEyeSlash
+  faEyeSlash,
+  faCamera,
+  faPenToSquare,
+  faGlobe
 )
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')

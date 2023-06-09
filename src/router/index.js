@@ -80,6 +80,13 @@ const router = createRouter({
     },
     {
       path: '/profil',
+      name: 'Personnal profile',
+      component: Profile,
+      meta: { title: 'Profil' },
+      beforeEnter: authGuard
+    },
+    {
+      path: '/profil/:id',
       name: 'Profile',
       component: Profile,
       meta: { title: 'Profil' },
