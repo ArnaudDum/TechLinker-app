@@ -3,12 +3,17 @@
   import { useApi } from '../helpers/composables/useApi'
   import { API_URL } from '../helpers/apiUrl'
   import { useRoute } from 'vue-router'
+  import { onMounted } from 'vue'
 
   const route = useRoute()
   const { id } = route.params
   const authStore = useAuthStore()
 
   const { isFetching, error, data: currentUser } = useApi(`${API_URL}/user/${id}`)
+
+  onMounted(() => {
+    console.log(currentUser)
+  })
 </script>
 
 <template>
