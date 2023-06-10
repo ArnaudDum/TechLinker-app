@@ -9,17 +9,22 @@
   const { id } = route.params
   const authStore = useAuthStore()
 
-  const { isFetching, error, data: currentUser } = useApi(`${API_URL}/user/${id}`)
+  const { isFetching, error, data: currentUser, isFinished } = useApi(`${API_URL}/user/${id}`)
 
-  onMounted(() => {
-    console.log(currentUser)
+  const profileName = computed(() => {
+    if (currentUser.value.firstName || currentUser.value.lastName) {
+      return `${currentUser.value.firstName} ${currentUser.value.lastName}`
+    } else if (currentUser.value.pseudo) {
+      return currentUser.value.pseudo
+    }
+    return currentUser.value._id
   })
 </script>
 
 <template>
   <section class="profile-page bg-gray">
     <div class="bg-gray-dark">
-      <div class="max-w-[1200px] mx-auto px-[30px] pb-[30px]">
+      <div v-if="isFinished" class="max-w-[1200px] mx-auto px-[30px] pb-[30px]">
         <div class="flex items-start gap-5 md:gap-10 border-b-2 border-gray">
           <div class="profile-pic rounded-full h-12 w-12 relative">
             <img v-if="currentUser.image" :src="currentUser.image" alt="">
@@ -31,7 +36,7 @@
             <button v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-0 right-0 cursor-pointer">
               <font-awesome-icon icon="fa-solid fa-pen-to-square" />
             </button>
-            <h1 class="font-mono text-2xl">User {{ currentUser._id }}</h1>
+            <h1 class="font-mono text-2xl">User {{ profileName }}</h1>
             <p v-if="currentUser.roles" class="text-lg">
               <span v-for="(role, index) in currentUser.roles" :key="index">
                 {{ role }}, 
