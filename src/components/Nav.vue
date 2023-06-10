@@ -69,7 +69,7 @@
     <div v-if="authStore.isAuthenticated">
       <div class="nav-separator"></div>
       <div class="profile-link flex items-start gap-5">
-        <router-link to="/profil" class="profile-link flex items-start gap-5">
+        <router-link :to="`/profil/${authStore.currentUser._id}`" class="profile-link flex items-start gap-5">
           <div class="profile-pic rounded-full overflow-hidden h-16 w-16">
             <img class="object-cover h-full w-auto" src="@/assets/img/dev-1.jpg" alt="" />
           </div>
