@@ -17,8 +17,22 @@
     } else if (currentUser.value.pseudo) {
       return currentUser.value.pseudo
     }
-    return currentUser.value._id
+    return `User ${currentUser.value._id}`
   })
+
+  const loadTextFromFile = (event) => {
+    const file = event.target.files[0]
+    const reader = new FileReader()
+    reader.addEventListener('load', () => {
+      currentUser.value = {
+        ...currentUser.value,
+        image: reader.result
+      }
+    }, false)
+    if (file) {
+      reader.readAsDataURL(file)
+    }
+  }
 </script>
 
 <template>
@@ -27,16 +41,19 @@
       <div v-if="isFinished" class="max-w-[1200px] mx-auto px-[30px] pb-[30px]">
         <div class="flex items-start gap-5 md:gap-10 border-b-2 border-gray">
           <div class="profile-pic rounded-full h-12 w-12 relative">
-            <img v-if="currentUser.image" :src="currentUser.image" alt="">
-            <button v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-2 right-1 cursor-pointer">
+            <div v-if="currentUser.image" class="rounded-full h-full w-full overflow-hidden">
+              <img :src="currentUser.image" :alt="profileName" class="object-cover h-full w-full" >
+            </div>
+            <div v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-4 right-4">
+              <input @change="loadTextFromFile" type="file" accept="image/png, image/jpg, image/jpeg" class="absolute bottom-0 right-0 h-full w-full opacity-0">
               <font-awesome-icon icon="fa-solid fa-camera" />
-            </button>
+            </div>
           </div>
           <div class="pt-5 flex-1 relative">
             <button v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-0 right-0 cursor-pointer">
               <font-awesome-icon icon="fa-solid fa-pen-to-square" />
             </button>
-            <h1 class="font-mono text-2xl">User {{ profileName }}</h1>
+            <h1 class="font-mono text-2xl">{{ profileName }}</h1>
             <p v-if="currentUser.roles" class="text-lg">
               <span v-for="(role, index) in currentUser.roles" :key="index">
                 {{ role }}, 
@@ -118,8 +135,8 @@
             </div>
             <div>
               <h3 class="text-lg text-[#F3F3F380] mb-3">Communauté</h3>
-              <p>{{ currentUser.followers.length }} profils suivent {{ currentUser.firstName ?? currentUser.pseudo }}</p>
-              <p>{{ currentUser.following.length }} profils suivis par {{ currentUser.firstName ?? currentUser.pseudo }}</p>
+              <p>{{ currentUser.followers.length }} profils suivent {{ profileName }}</p>
+              <p>{{ currentUser.following.length }} profils suivis par {{ profileName }}</p>
             </div>
           </div>
         </div>
@@ -129,6 +146,10 @@
 </template>
 
 <style scoped>
+  input[type=file],
+  input[type=file]::-webkit-file-upload-button {
+    cursor: pointer; 
+  }
   .profile-page {
     padding-top: 150px;
   }
