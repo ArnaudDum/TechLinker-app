@@ -4,6 +4,9 @@
   import { API_URL } from '../helpers/apiUrl'
   import { useRoute } from 'vue-router'
   import { ref, computed, onMounted } from 'vue'
+  import ProfileMain from '../components/modal/ProfileMain.vue'
+  import ProfileInfo from '../components/modal/ProfileInfo.vue'
+  import ProfileStack from '../components/modal/ProfileStack.vue'
 
   const route = useRoute()
   const { id } = route.params
@@ -33,9 +36,20 @@
       reader.readAsDataURL(file)
     }
   }
+
+  const profileMainOpen = ref(false)
+  const profileInfoOpen = ref(false)
+  const profileStackOpen = ref(false)
+
+  const toggleMainModal = () => profileMainOpen.value = !profileMainOpen.value
+  const toggleInfoModal = () => profileInfoOpen.value = !profileInfoOpen.value
+  const toggleStackModal = () => profileStackOpen.value = !profileStackOpen.value
 </script>
 
 <template>
+  <ProfileMain :open="profileMainOpen" @close-modal="toggleMainModal"/>
+  <ProfileInfo :open="profileInfoOpen" @close-modal="toggleInfoModal"/>
+  <ProfileStack :open="profileStackOpen" @close-modal="toggleStackModal"/>
   <section class="profile-page bg-gray">
     <div class="bg-gray-dark">
       <div v-if="isFinished" class="max-w-[1200px] mx-auto px-[30px] pb-[30px]">
@@ -44,13 +58,13 @@
             <div v-if="currentUser.image" class="rounded-full h-full w-full overflow-hidden">
               <img :src="currentUser.image" :alt="profileName" class="object-cover h-full w-full" >
             </div>
-            <div v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-4 right-4">
+            <div v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-0 sm:bottom-4 right-4">
               <input @change="loadTextFromFile" type="file" accept="image/png, image/jpg, image/jpeg" class="absolute bottom-0 right-0 h-full w-full opacity-0">
               <font-awesome-icon icon="fa-solid fa-camera" />
             </div>
           </div>
           <div class="pt-5 flex-1 relative">
-            <button v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-0 right-0 cursor-pointer">
+            <button @click="toggleMainModal" v-if="authStore.currentUser._id === currentUser._id" class="absolute bottom-0 right-0 cursor-pointer">
               <font-awesome-icon icon="fa-solid fa-pen-to-square" />
             </button>
             <h1 class="font-mono text-2xl">{{ profileName }}</h1>
@@ -63,7 +77,7 @@
           </div>
         </div>
         <div class="py-8 border-b-2 border-gray relative">
-          <button v-if="authStore.currentUser._id === currentUser._id" class="absolute top-8 right-0 cursor-pointer">
+          <button @click="toggleInfoModal" v-if="authStore.currentUser._id === currentUser._id" class="absolute top-8 right-0 cursor-pointer">
             <font-awesome-icon icon="fa-solid fa-pen-to-square" />
           </button>
           <h2 class="profile-section-title font-mono text-2xl">Informations</h2>
@@ -88,7 +102,7 @@
           </div>
         </div>
         <div class="py-8 border-b-2 border-gray relative">
-          <button v-if="authStore.currentUser._id === currentUser._id" class="absolute top-8 right-0 cursor-pointer">
+          <button @click="toggleStackModal" v-if="authStore.currentUser._id === currentUser._id" class="absolute top-8 right-0 cursor-pointer">
             <font-awesome-icon icon="fa-solid fa-pen-to-square" />
           </button>
           <h2 class="profile-section-title font-mono text-2xl">Technologies & rôles</h2>
@@ -124,9 +138,6 @@
           </div>
         </div>
         <div class="py-8 relative">
-          <button v-if="authStore.currentUser._id === currentUser._id" class="absolute top-8 right-0 cursor-pointer">
-            <font-awesome-icon icon="fa-solid fa-pen-to-square" />
-          </button>
           <h2 class="profile-section-title font-mono text-2xl">Activité</h2>
           <div class="py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>

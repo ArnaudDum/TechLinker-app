@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faBars, faShareNodes, faArrowUp, faCircleCheck, faCheck, faRocket, faLayerGroup, faScrewdriverWrench, faHouse, faBarsProgress, faGrip, faUsers, faPeopleGroup, faComments, faGear, faEllipsisVertical, faEye, faEyeSlash, faCamera, faPenToSquare, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faShareNodes, faArrowUp, faCircleCheck, faCheck, faRocket, faLayerGroup, faScrewdriverWrench, faHouse, faBarsProgress, faGrip, faUsers, faPeopleGroup, faComments, faGear, faEllipsisVertical, faEye, faEyeSlash, faCamera, faPenToSquare, faGlobe, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedinIn, faTwitter, faFacebook, faDiscord, faDribbble, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import './assets/base.css'
@@ -43,7 +43,8 @@ library.add(
   faEyeSlash,
   faCamera,
   faPenToSquare,
-  faGlobe
+  faGlobe,
+  faXmark
 )
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
